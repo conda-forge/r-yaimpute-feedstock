@@ -14,14 +14,16 @@ Summary: Performs nearest neighbor-based imputation using one or more alternativ
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/r-yaimpute-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/r-yaimpute-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/r-yaimpute-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/r-yaimpute-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/r-yaimpute-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/r-yaimpute-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-yaimpute-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-yaimpute-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/r-yaimpute-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-yaimpute-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-yaimpute-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-yaimpute-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-yaimpute/badges/version.svg)](https://anaconda.org/conda-forge/r-yaimpute)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-yaimpute/badges/downloads.svg)](https://anaconda.org/conda-forge/r-yaimpute)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-r--yaimpute-green.svg)](https://anaconda.org/conda-forge/r-yaimpute) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/r-yaimpute.svg)](https://anaconda.org/conda-forge/r-yaimpute) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/r-yaimpute.svg)](https://anaconda.org/conda-forge/r-yaimpute) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/r-yaimpute.svg)](https://anaconda.org/conda-forge/r-yaimpute) |
 
 Installing r-yaimpute
 =====================
