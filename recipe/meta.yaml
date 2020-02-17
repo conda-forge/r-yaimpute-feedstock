@@ -1,4 +1,4 @@
-{% set version = '1.0-31' %}
+{% set version = "1.0-32" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/yaImpute_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/yaImpute/yaImpute_{{ version }}.tar.gz
-  sha256: cedd86034391619b1bbd977cbb714065268a0504998570bb20abcf4b738a0801
+  sha256: 08eee5d851b80aad9c7c80f9531aadd50d60e4b16b3a80657a50212269cd73ff
 
 build:
   merge_build_host: True  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
