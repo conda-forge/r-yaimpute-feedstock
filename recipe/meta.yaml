@@ -1,4 +1,4 @@
-{% set version = "1.0-32" %}
+{% set version = "1.0-33" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/yaImpute_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/yaImpute/yaImpute_{{ version }}.tar.gz
-  sha256: 08eee5d851b80aad9c7c80f9531aadd50d60e4b16b3a80657a50212269cd73ff
+  sha256: 58595262eb1bc9ffeeadca78664c418ea24b4e894744890c00252c5ebd02512c
 
 build:
-  merge_build_host: True  # [win]
-  number: 2
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -44,16 +44,11 @@ test:
 about:
   home: https://CRAN.R-project.org/package=yaImpute
   license: GPL (>= 2)
-  summary: Performs nearest neighbor-based imputation using one or more alternative  approaches
-    to processing multivariate data. These include methods based on canonical  correlation
-    analysis, canonical correspondence analysis, and a multivariate adaptation  of the
-    random forest classification and regression techniques of Leo Breiman and Adele  Cutler.
-    Additional methods are also offered. The package includes functions for  comparing
-    the results from running alternative techniques, detecting imputation targets  that
-    are notably distant from reference observations, detecting and correcting  for bias,
-    bootstrapping and building ensemble imputations, and mapping results.
+  summary: Performs nearest neighbor-based imputation using one or more alternative  approaches to processing multivariate data. These include methods based on canonical  correlation analysis, canonical correspondence analysis, and a multivariate adaptation  of the random forest classification and regression techniques of
+    Leo Breiman and Adele  Cutler. Additional methods are also offered. The package includes functions for  comparing the results from running alternative techniques, detecting imputation targets  that are notably distant from reference observations, detecting and correcting  for bias, bootstrapping and building ensemble
+    imputations, and mapping results.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
