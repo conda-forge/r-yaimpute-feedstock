@@ -3,6 +3,7 @@ About r-yaimpute-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-yaimpute-feedstock/blob/main/LICENSE.txt)
 
+
 About r-yaimpute
 ----------------
 
@@ -11,6 +12,7 @@ Home: https://CRAN.R-project.org/package=yaImpute
 Package license: GPL (>= 2)
 
 Summary: Performs nearest neighbor-based imputation using one or more alternative  approaches to processing multivariate data. These include methods based on canonical  correlation analysis, canonical correspondence analysis, and a multivariate adaptation  of the random forest classification and regression techniques of Leo Breiman and Adele  Cutler. Additional methods are also offered. The package includes functions for  comparing the results from running alternative techniques, detecting imputation targets  that are notably distant from reference observations, detecting and correcting  for bias, bootstrapping and building ensemble imputations, and mapping results.
+
 About r-yaimpute
 ----------------
 
@@ -153,7 +155,7 @@ available continuous integration services. Thanks to the awesome service provide
 [CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
 [Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
 it is possible to build and upload installable packages to the
-[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
