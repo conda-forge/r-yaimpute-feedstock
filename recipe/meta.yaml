@@ -1,6 +1,5 @@
 {% set version = "1.0-34" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-yaimpute
@@ -13,8 +12,7 @@ source:
   sha256: b4c898c95fca784480bbbc239c78c85dc9f45a96c34c563ea7e81248ef8a8a73
 
 build:
-  merge_build_host: true  # [win]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -22,8 +20,10 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}        # [not win]
+    - {{ stdlib("c") }}          # [not win]
     - {{ compiler('cxx') }}      # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib("m2w64_c") }}          # [win]
     - {{ compiler('m2w64_cxx') }}        # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
@@ -34,7 +34,6 @@ requirements:
     - r-base
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
 
 test:
   commands:
