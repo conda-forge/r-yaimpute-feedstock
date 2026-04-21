@@ -1,30 +1,34 @@
-{% set version = "1.0-34.1" %}
+{% set version = "1.0-36" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
   name: r-yaimpute
-  version: {{ version|replace("-", "_") }}
+  version: "{{ version|replace("-", "_") }}"
 
 source:
   url:
     - {{ cran_mirror }}/src/contrib/yaImpute_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/yaImpute/yaImpute_{{ version }}.tar.gz
-  sha256: 679919d887682ddcdb89f8fda8828c88f67fed47afb5f497cc62b73bc46308de
+  sha256: d85924aa47948e8e3f76b4c95ccaad9b91a54b117113f63b8f940acb6b0ea6e3
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
-    - {{ compiler('c') }}        # [not win]
-    - {{ stdlib("c") }}          # [not win]
-    - {{ compiler('cxx') }}      # [not win]
+    - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ stdlib("m2w64_c") }}          # [win]
-    - {{ compiler('m2w64_cxx') }}        # [win]
+    - {{ compiler('cxx') }}            # [not win]
+    - {{ compiler('m2w64_cxx') }}      # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
     - {{ posix }}sed               # [win]
@@ -41,13 +45,14 @@ test:
     - "\"%R%\" -e \"library('yaImpute')\""  # [win]
 
 about:
-  home: https://CRAN.R-project.org/package=yaImpute
-  license: GPL (>= 2)
-  summary: Performs nearest neighbor-based imputation using one or more alternative  approaches to processing multivariate data. These include methods based on canonical  correlation analysis, canonical correspondence analysis, and a multivariate adaptation  of the random forest classification and regression techniques of
-    Leo Breiman and Adele  Cutler. Additional methods are also offered. The package includes functions for  comparing the results from running alternative techniques, detecting imputation targets  that are notably distant from reference observations, detecting and correcting  for bias, bootstrapping and building ensemble
-    imputations, and mapping results.
+  home: https://github.com/jeffreyevans/yaImpute
+  license: GPL-2.0-or-later
+  summary: Performs nearest neighbor-based imputation using one or more alternative  approaches to processing multivariate data. These include methods based on canonical  correlation analysis, canonical correspondence analysis, and a multivariate adaptation  of the random forest classification and regression techniques
+    of Leo Breiman and Adele  Cutler. Additional methods are also offered. The package includes functions for  comparing the results from running alternative techniques, detecting imputation targets  that are notably distant from reference observations, detecting and correcting  for bias, bootstrapping and building 
+    ensemble imputations, and mapping results.
   license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
