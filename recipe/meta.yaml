@@ -3,7 +3,7 @@
 
 package:
   name: r-yaimpute
-  version: {{ version|replace("-", "_") }}
+  version: "{{ version|replace("-", "_") }}"
 
 source:
   url:
@@ -16,15 +16,19 @@ build:
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
-    - {{ compiler('c') }}        # [not win]
-    - {{ stdlib("c") }}          # [not win]
-    - {{ compiler('cxx') }}      # [not win]
+    - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ stdlib("m2w64_c") }}          # [win]
-    - {{ compiler('m2w64_cxx') }}        # [win]
+    - {{ compiler('cxx') }}            # [not win]
+    - {{ compiler('m2w64_cxx') }}      # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
     - {{ posix }}sed               # [win]
@@ -41,13 +45,14 @@ test:
     - "\"%R%\" -e \"library('yaImpute')\""  # [win]
 
 about:
-  home: https://CRAN.R-project.org/package=yaImpute
-  license: GPL (>= 2)
+  home: https://github.com/jeffreyevans/yaImpute
+  license: GPL-2.0-or-later
   summary: Performs nearest neighbor-based imputation using one or more alternative  approaches to processing multivariate data. These include methods based on canonical  correlation analysis, canonical correspondence analysis, and a multivariate adaptation  of the random forest classification and regression techniques
     of Leo Breiman and Adele  Cutler. Additional methods are also offered. The package includes functions for  comparing the results from running alternative techniques, detecting imputation targets  that are notably distant from reference observations, detecting and correcting  for bias, bootstrapping and building 
     ensemble imputations, and mapping results.
   license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
